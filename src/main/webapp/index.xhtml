@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Cadastro</title>
+    </h:head>
+
+    <h:body>
+        <h:form id="formulario">
+            <!-- Mensagens de feedback -->
+            <p:messages id="messages" showDetail="true" closable="true">
+                <p:autoUpdate/>
+            </p:messages>
+            
+            <!-- Grid para os campos de entrada -->
+            <br></br>
+            <p:panelGrid columns="2" style="width: 50%; margin: auto; text-align: center;" cellpadding="5">
+                <p:outputLabel value="Nome do Jogador:" for="nomeJogador" style="text-align: right; font-weight: bold;" />
+                <p:inputText id="nomeJogador" value="#{jogoBean.jogo.nomeJogador}" />
+
+                <p:outputLabel value="Número aposta:" for="numeroAposta" style="text-align: right; font-weight: bold;" />
+                <p:inputText id="numeroAposta" value="#{jogoBean.jogo.numeroAposta}" />
+            </p:panelGrid>
+            
+            <!-- Botão de Salvar -->
+            <div style="text-align: center; margin-top: 10px;">
+                <p:commandButton value="Salvar" action="#{jogoBean.adicionarJogo}" update="formulario" />
+            </div>
+
+            <!-- Espaço entre os botões -->
+            <br />
+            
+            <!-- Botão de Listagem dos Jogos -->
+            <div style="text-align: center; margin-top: 10px;">
+                <p:button value="Listagem" outcome="listagem" icon="pi pi-arrow-right" styleClass="ui-button-secondary" />
+            </div>
+        	
+        </h:form>
+    </h:body>
+</html>
